@@ -1,0 +1,20 @@
+{% block page %}
+  <div class="container">
+    {%  include "@component-blocks/componente-doble/componente-doble.twig" with componentedoble %}
+    {%  include "@components/boton/boton.twig"  with {boton:boton1} %}
+    {%  include "@components/boton/boton.twig"  with {boton:boton2} %}
+
+    <div class="d-flex flex-column align-items-center">
+    {% for item in ultimas_paginas %}
+      {% if loop.index is even %}
+        {% set item = item|merge({'class': 'c-boton--verde'}) %}
+      {% endif %}
+      {%  include "@components/boton/boton.twig"  with {boton:item} %}
+    {% endfor %}
+    </div>
+    {%  include "@components/image/image.twig"  with {image:image} %}
+
+  </div>
+
+{% endblock %}
+

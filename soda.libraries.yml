@@ -1,0 +1,17 @@
+global_styles:
+  version: VERSION
+  css:
+    theme:
+      assets/css/styles.css: {}
+  js:
+     assets/js/vendor.js: { weight: -1000 }
+     assets/js/app.js: {}
+  dependencies:
+  - core/jquery.once
+  - core/drupal
+  - core/drupalSettings
+
+print-styling:
+  css:
+    theme:
+      assets/css/styles.css: {}

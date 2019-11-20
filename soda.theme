@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+  use Drupal\Core\Url;
+use Drupal\biko_media_src\MediaSrc;
+use Drupal\media\Entity\Media;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function front_preprocess_html(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path.alias_manager')
+    ->getAliasByPath($path), '/');
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-both');
+  }
+  elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-first');
+  }
+  elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-second');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-none');
+  }
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('alias--' . $alias_class);
+  }
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype--' . $variables['node_type'] : '';
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'logged-in' : 'logged-out';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function front_preprocess_page(&$variables) {
+  $site_config = \Drupal::config('system.site');
+  $variables['site_name'] = $site_config->get('name');
+  $variables['site_slogan'] = $site_config->get('slogan');
+  $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function front_preprocess_block(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function front_preprocess_node(&$variables) {
+  // Helper variables for multiple nodes.
+  if (!empty($variables['elements']['#entity_type'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
+  }
+
+  $result= views_get_view_result('ultimas_paginas', 'default');
+  if (!empty($result)) {
+    foreach ($result as $row) {
+      $title=$row->_entity->getTitle();
+      $url=$row->_entity->toUrl()->toString();
+      $item=['label'=>$title, 'url'=>$url];
+      $variables['ultimas_paginas'][] = $item;
+    }
+  }
+  $node=$variables['elements']['#node'];
+  if($node->getType()=='page'){
+    $image_entity= Media::load($node->field_multimedia->first()->target_id);
+    $variables['image']['src']  = MediaSrc::getSrc($image_entity, 'large');
+    $variables['image']['alt'] = MediaSrc::getAlt($image_entity);
+  }
+
+}
+function front_preprocess_paragraph__paragraph_componente_doble(&$variables){
+  $paragraph = $variables['paragraph'];
+  $variables['titular']['label']=$paragraph->	field_paragraph_tit_pri_nivel->value;
+  $variables['boton']['label']=$paragraph->	field_paragraph_boton_url->title;
+  $variables['boton']['url']=$paragraph->	field_paragraph_boton_url->uri;
+}

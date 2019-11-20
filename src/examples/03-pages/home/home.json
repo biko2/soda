@@ -1,0 +1,37 @@
+{
+  "componentedoble":{
+    "titular": {
+      "label": "Este es un titular de primer nivel del componente doble de la pagina"
+    },
+
+    "boton": {
+      "label": "Boton componente doble",
+      "url": "https://www.google.es"
+    }
+
+  },
+  "boton1": {
+    "label": "Boton1",
+    "url": "https://www.google.es"
+  },
+  "boton2": {
+    "label": "Boton2",
+    "url": "https://www.google.es"
+  },
+  "ultimas_paginas": [
+    {
+      "url":"https://www.google.es" ,
+      "label": "Holi"
+    },
+    {
+      "url":"https://www.google.es2" ,
+      "label": "Holi2"
+    }
+  ],
+  "image": {
+    "src": "https://picsum.photos/200/300",
+    "alt": "AQUI"
+  }
+
+}
+

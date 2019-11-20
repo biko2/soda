@@ -1,0 +1,34 @@
+{% set menu_level= menu_level | number_format %}
+{% if menu_level==0 %}
+    <div class="d-flex flex-column"  data-level="{{ menu_level }}">
+{% endif %}
+    {% for item in menu %}
+        {% if menu_level==1 %}
+            {% set item = item|merge({'class': 'c-link-menu--segundo'}) %}
+        {% elseif menu_level==2 %}
+            {% set item = item|merge({'class': 'c-link-menu--tercero'}) %}
+        {% endif %}
+        {% include '@components/link-menu/link-menu.twig' with {linkMenu:item, menu_level:menu_level} only %}
+        {% if item.below %}
+            {% set next_menu= menu_level+1 %}
+            {% if menu_level==0 %}
+                <div class="ml-5 d-flex flex-column">
+            {% endif %}
+                    {% if menu_level==1 %}
+                        <div class="ml-3 d-flex flex-column" data-level="{{ menu_level }}">
+                    {% endif %}
+                        {% include "@component-blocks/menu/menu.twig" with {menu: item.below, menu_level:next_menu} only %}
+                    {% if menu_level==1 %}
+                        </div>
+                    {% endif %}
+            {% if menu_level==0 %}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% if menu_level==0 %}
+    </div>
+{% endif %}
+
+
+

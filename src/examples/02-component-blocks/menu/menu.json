@@ -1,0 +1,50 @@
+{
+  "menu": [
+    {
+      "label": "Item 1",
+      "url":  "https://google.es",
+      "menu_level": "0"
+    },
+    {
+      "label": "Item 2",
+      "url":  "https://google.es",
+      "menu_level": "0",
+      "below": [
+        {
+          "label": "Item 2.1",
+          "url":  "https://google.es"
+        },
+        {
+          "label": "Item 2.2",
+          "url":  "https://google.es",
+          "below": [
+            {
+              "label": "Item 2.2.1",
+              "url":  "https://google.es"
+            },
+            {
+              "label": "Item 2.2.2",
+              "url":  "https://google.es"
+            },
+            {
+              "label": "Item 2.2.3",
+              "url":  "https://google.es"
+
+            }
+          ]
+        },
+        {
+          "label": "Item 2.3",
+          "url":  "https://google.es"
+
+        }
+      ]
+    },
+    {
+      "label": "Item 3",
+      "url":  "https://google.es",
+      "menu_level": 0
+
+    }
+  ]
+}

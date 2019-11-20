@@ -1,0 +1,11 @@
+{
+  "titular": {
+    "label": "Este es un titular de primer nivel"
+  },
+
+  "boton": {
+    "label": "Boton raro",
+    "url": "https://www.google.es"
+  }
+
+}

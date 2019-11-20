@@ -1,0 +1,35 @@
+name: soda
+type: theme
+description: 'Biko D8 starter theme - component based'
+core: 8.x
+libraries:
+  - front/global_styles
+regions:
+  pre_header: 'Pre header'
+  header: Header
+  pre_content: 'Pre content'
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  post_content: 'Post content'
+  footer: Footer
+  post_footer: 'Post footer'
+ckeditor_stylesheets:
+  - assets/css/styles.css
+
+entity_print:
+  all: 'front/print-styling'
+component-libraries:
+  base:
+    paths:
+      - ./src/templates/00-base
+  components:
+    paths:
+      - ./src/templates/01-components
+  component-blocks:
+    paths:
+      - ./src/templates/02-component-blocks
+  pages:
+    paths:
+      - ./src/templates/03-pages
+

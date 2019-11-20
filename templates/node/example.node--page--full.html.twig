@@ -1,0 +1,36 @@
+{% include "@pages/home/home.twig"  with
+  {
+    "componentedoble":{
+    "titular": {
+      "label": node.field_titulo_administrativo.0.value
+    },
+
+    "boton": {
+      "label": label,
+      "url": "https://www.google.es"
+    }
+
+  },
+    "boton1": {
+    "label": "Boton1 Drupal",
+    "url": "https://www.google.es"
+  },
+    "boton2": {
+    "label": "Boton2",
+    "url": "https://www.google.es"
+  },
+    "ultimas_paginas":ultimas_paginas,
+    "image":image
+  }
+
+
+%}
+
+#}
+
+<section {{ attributes }}>
+  <div class="container">
+    {{ content.field_contenedor_paragraphs }}
+  </div>
+</section>
+

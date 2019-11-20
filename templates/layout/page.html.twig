@@ -1,0 +1,56 @@
+<div {{ attributes }}>
+
+
+  {% if page.pre_content %}
+        {{ page.pre_content }}
+  {% endif %}
+
+
+      {% if page.sidebar_first %}
+          {{ page.sidebar_first }}
+      {% endif %}
+
+      <section id="content">
+
+        {% if breadcrumb or title or messages or tabs or action_links %}
+          <div id="content-header">
+
+            {{ breadcrumb }}
+
+            {% if page.highlighted %}
+              {{ page.highlighted }}
+            {% endif %}
+
+            {{ title_prefix }}
+
+            {% if title %}
+              {{ title }}
+            {% endif %}
+
+            {{ title_suffix }}
+            {{ messages }}
+            {{ page.help }}
+
+            {% if tabs %}
+              <div class="tabs">{{ tabs }}</div>
+            {% endif %}
+
+            {% if action_links %}
+              <ul class="action-links">{{ action_links }}</ul>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+          {{ page.content }}
+
+        {{ feed_icons }}
+      </section>
+
+      {% if page.sidebar_second %}
+          {{ page.sidebar_second }}
+      {% endif %}
+
+  {{ page.post_content }}
+
+</div>

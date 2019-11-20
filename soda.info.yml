@@ -3,7 +3,7 @@ type: theme
 description: 'Biko D8 starter theme - component based'
 core: 8.x
 libraries:
-  - front/global_styles
+  - soda/global_styles
 regions:
   pre_header: 'Pre header'
   header: Header
@@ -18,7 +18,7 @@ ckeditor_stylesheets:
   - assets/css/styles.css
 
 entity_print:
-  all: 'front/print-styling'
+  all: 'soda/print-styling'
 component-libraries:
   base:
     paths:

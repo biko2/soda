@@ -1,4 +1,4 @@
-# Front: Biko2 D8 Theme (based on COG)
+# SODA: Biko2 D8 Theme (component based)
 ![by Biko2](https://raw.githubusercontent.com/biko2/biko-repo-bagdes/master/png/biko-bagge-pill.png)
 ![GitHub last commit](https://img.shields.io/github/last-commit/biko2/front.svg?style=plastic)
 ![GitHub release](https://img.shields.io/github/release/biko2/front.svg)
@@ -34,6 +34,10 @@ Añadir repo de packagist al `composer.json` del proyecto
 Instalar modulo biko_svgsprites
 ```
 composer require 'biko2/biko_svgsprites'
+```
+Instalar modulo components!
+```
+composer require 'drupal/components'
 ```
 Descargar este theme e incluirlo en el proyecto en `themes/custom`.
 Muy recomendable cambiarle el nombre al theme en los siguientes archivos:

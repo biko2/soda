@@ -1,7 +1,7 @@
 # SODA: Biko2 D8 Theme (component based)
 ![by Biko2](https://raw.githubusercontent.com/biko2/biko-repo-bagdes/master/png/biko-bagge-pill.png)
-![GitHub last commit](https://img.shields.io/github/last-commit/biko2/front.svg?style=plastic)
-![GitHub release](https://img.shields.io/github/release/biko2/front.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/biko2/soda.svg?style=plastic)
+![GitHub release](https://img.shields.io/github/release/biko2/soda.svg)
 ![node](https://img.shields.io/node/v/gulp.svg)
 ![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)
 

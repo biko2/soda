@@ -1,9 +1,9 @@
-name: soda
+name: cortazar
 type: theme
 description: 'Biko D8 starter theme - component based'
 core: 8.x
 libraries:
-  - soda/global_styles
+  - cortazar/global_styles
 regions:
   pre_header: 'Pre header'
   header: Header
@@ -18,7 +18,7 @@ ckeditor_stylesheets:
   - assets/css/styles.css
 
 entity_print:
-  all: 'soda/print-styling'
+  all: 'cortazar/print-styling'
 component-libraries:
   base:
     paths:

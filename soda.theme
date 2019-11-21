@@ -14,7 +14,7 @@ use Drupal\media\Entity\Media;
 /**
  * Implements hook_preprocess_html().
  */
-function front_preprocess_html(&$variables) {
+function soda_preprocess_html(&$variables) {
   $path = \Drupal::service('path.current')->getPath();
   $alias = trim(\Drupal::service('path.alias_manager')
     ->getAliasByPath($path), '/');
@@ -48,7 +48,7 @@ function front_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function front_preprocess_page(&$variables) {
+function soda_preprocess_page(&$variables) {
   $site_config = \Drupal::config('system.site');
   $variables['site_name'] = $site_config->get('name');
   $variables['site_slogan'] = $site_config->get('slogan');
@@ -59,20 +59,17 @@ function front_preprocess_page(&$variables) {
 /**
  * Implements template_preprocess_block().
  */
-function front_preprocess_block(&$variables) {
+function soda_preprocess_block(&$variables) {
 
 }
 
 /**
  * Implements hook_preprocess_node().
  */
-function front_preprocess_node(&$variables) {
-  // Helper variables for multiple nodes.
-  if (!empty($variables['elements']['#entity_type'])) {
-    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
-  }
+function soda_preprocess_node(&$variables) {
 
-  $result= views_get_view_result('ultimas_paginas', 'default');
+  //EXAMPLE: preprocess a view
+  /*$result= views_get_view_result('ultimas_paginas', 'default');
   if (!empty($result)) {
     foreach ($result as $row) {
       $title=$row->_entity->getTitle();
@@ -80,18 +77,22 @@ function front_preprocess_node(&$variables) {
       $item=['label'=>$title, 'url'=>$url];
       $variables['ultimas_paginas'][] = $item;
     }
-  }
-  $node=$variables['elements']['#node'];
+  }*/
+
+  //EXAMPLE: preprocess images
+  /*$node=$variables['elements']['#node'];
   if($node->getType()=='page'){
     $image_entity= Media::load($node->field_multimedia->first()->target_id);
     $variables['image']['src']  = MediaSrc::getSrc($image_entity, 'large');
     $variables['image']['alt'] = MediaSrc::getAlt($image_entity);
-  }
+  }*/
 
 }
-function front_preprocess_paragraph__paragraph_componente_doble(&$variables){
+
+//EXAMPLE: preprocess a paragraph
+/*function soda_preprocess_paragraph__paragraph_componente_doble(&$variables){
   $paragraph = $variables['paragraph'];
   $variables['titular']['label']=$paragraph->	field_paragraph_tit_pri_nivel->value;
   $variables['boton']['label']=$paragraph->	field_paragraph_boton_url->title;
   $variables['boton']['url']=$paragraph->	field_paragraph_boton_url->uri;
-}
+}*/

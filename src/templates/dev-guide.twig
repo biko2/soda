@@ -1,30 +1,31 @@
-{% extends "@base/twigs/page.twig" %}
+{% extends "@base/twigs/page-maquetas.twig" %}
 {% set title = "Index for pages and components" %}
 {% block page %}
-    <h3>TITULo</h3>
-
-  <h4>Componentes</h4>
-  <ul>
-    <li><a href="components-list-template.html">Todos los componentes</a></li>
-    {% for value in components %}
-      <li><a href="01-components/{{value.dirname}}/{{ value.filename }}.html">{{ value.filename }}</a></li>
-    {% endfor %}
-  </ul>
-  <h4>Bloques de Componentes</h4>
-  <ul>
-    {% for value in componentBlocks %}
-      <li><a href="02-component-blocks/{{value}}/{{ value }}.html">{{ value }}</a></li>
-    {% endfor %}
-  </ul>
-    <h4>Páginas</h4>
-    <ul>
+  <div class="container mt-3">
+    <h1 class="mb-5">Maquetas</h1>
+    <div class="ml-3">
+      <h3 class="titular-maquetas">Páginas</h3>
+      <ul class="lista-maquetas">
         {% for value in pages %}
-            <li><a href="03-pages/{{ value }}/{{ value }}.html">{{ value }}</a></li>
+          <li><a href="03-pages/{{ value }}/{{ value }}.html">{{ value }}</a></li>
         {% endfor %}
-    </ul>
+      </ul>
+      <h3 class="titular-maquetas">Componentes</h3>
+        <ul class="lista-maquetas">
+          <li><a href="components-list-template.html">Todos los componentes</a></li>
+          {% for value in components %}
+            <li><a href="01-components/{{value.dirname}}/{{ value.filename }}.html">{{ value.filename }}</a></li>
+          {% endfor %}
+        </ul>
+        <h3 class="titular-maquetas">Bloques de Componentes</h3>
+        <ul class="lista-maquetas">
+          {% for value in componentBlocks %}
+            <li><a href="02-component-blocks/{{value.dirname}}/{{ value.filename }}.html">{{ value.filename }}</a></li>
+          {% endfor %}
+        </ul>
 
-    <h3><a href="/svg/sprite/sprite.symbol.html">SVG SPRITES</a></h3>
-    {{svgSprite('logo-red')}}
-    {{svgSprite('reiniciar')}}
+      <h3 class="titular-maquetas"><a class="u-black u-text-underline" href="/svg/sprite/sprite.symbol.html">SVG sprites</a></h3>
+    </div>
+  </div>
 {% endblock %}
 

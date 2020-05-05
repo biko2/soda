@@ -1,6 +1,13 @@
 
-let funcSvgSprite = function(id){
-  return '<svg><use xlink:href="/svg/sprite/sprite.svg#' + id + '"></use></svg>';
+let funcSvgSprite = function(id,iconClass){
+  if(typeof iconClass=='undefined'){
+    iconClass='';
+  }
+  var output = '<svg class="icon ' + iconClass +' svg--'+id+'-dims' + '">';
+  output += '<use xlink:href="/svg/sprite/sprite.svg#';
+  output += id;
+  output += '"></use></svg>';
+  return output;
 }
 let funcActiveMenu = function(target,current){
   if(target === current){

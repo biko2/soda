@@ -239,7 +239,6 @@ var fs = require('fs');
   require('./gulp-tasks/compile-sass')(gulp, plugins, options);
   require('./gulp-tasks/compile-js')(gulp, plugins, options);
   require('./gulp-tasks/compile-styleguide')(gulp, plugins, options);
-  require('./gulp-tasks/jekyll')(gulp, plugins, options);
   require('./gulp-tasks/lint-js')(gulp, plugins, options);
   require('./gulp-tasks/lint-css')(gulp, plugins, options);
   require('./gulp-tasks/minify-css')(gulp, plugins, options);

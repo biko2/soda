@@ -34,15 +34,4 @@ module.exports = function (gulp, plugins, options) {
       )
 
   );
-  gulp.task('buildWithJekyll',  gulp.series(
-    'compile:sass',
-    'compile:js',
-    'compile:vendorjs',
-    'images',
-    'fonts',
-    'jekyll',
-    gulp.series('minify:css',
-      'minify:js')
-
-  ));
 };

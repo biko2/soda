@@ -14,10 +14,4 @@ module.exports = function (gulp, plugins, options) {
     'twigPages',
     'watch'
   ));
-  gulp.task('serveWithJekyll', 
-    gulp.parallel('build',
-    'browser-sync',
-    'jekyll',
-    'watch'
-  ));
 };

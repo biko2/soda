@@ -10,35 +10,43 @@ var glob = require('glob');
  module.exports = function (gulp, plugins, options,twigHelpers) {
     'use strict';
    gulp.task('twigPages:dev-guide', function (cb) {
-   /*  if(options.production){
+     if(options.production){
        return cb();
-     }*/
-     //Define empty variable for page list.
+     }
      let pageList = [];
      //Iterate over source files.
      let pageListFiles =  glob.sync(options.twigPages.pagesSrc);
      pageListFiles.forEach(function(file){
-       //Adding entry to the list.
        pageList.push(path.basename(path.dirname(file)));
 
      });
      let componentList = [];
+     let componentListBaseString = 'src/templates/01-components/';
      let componentBlocksList = [];
+     let componentBlocksListBaseString = 'src/templates/02-component-blocks/';
+
 
      let componentListFiles =  glob.sync(options.twigPages.componentsSrc);
      componentListFiles.forEach(function(file){
-       //Adding entry to the list.
-       //console.log(path.basename(file,'.twig'));
-       //componentList.push(path.basename(file,'.twig'));
-       componentList.push({filename:path.basename(file,'.twig'), dirname:path.dirname(file).replace('src/templates/01-components/', '')});
+       let basename = path.basename(file,'.twig');
+       let dirname = path.dirname(file).replace(componentListBaseString, '');
+       componentList.push({
+        basename: basename,
+        dirname:dirname,
+        filename:dirname.replace(basename,"")  + basename
+
+        });
 
      });
-
      let componentBlocksListFiles =  glob.sync(options.twigPages.componentBlocksSrc);
      componentBlocksListFiles.forEach(function(file){
-       //Adding entry to the list.
-       //console.log(path.basename(file,'.twig'));
-       componentBlocksList.push(path.basename(file,'.twig'));
+      let basename = path.basename(file,'.twig');
+      let dirname = path.dirname(file).replace(componentBlocksListBaseString, '');
+      componentBlocksList.push({
+        basename: basename,
+        dirname:dirname,
+        filename:dirname.replace(basename,"")  + basename
+      });
      });
      var devGuideFile = path.join(options.twigPages.baseSrc,'/dev-guide.twig');
      if(!fs.existsSync(devGuideFile)){
@@ -57,8 +65,6 @@ var glob = require('glob');
         process.stderr.write(err.message + '\n');
         this.emit('end');
       })
-     //Save files.
-     //.pipe(plugins.rename('index.html'))
        .pipe(plugins.rename(function (path) {
          path.dirname = '';
          path.basename = 'index';

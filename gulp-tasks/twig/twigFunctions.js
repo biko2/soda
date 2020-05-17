@@ -30,7 +30,10 @@ let funcResponsiveImage = function(imageName,alt){
   output += '">';
   return output;
 }
-
+var funcDump = function(data, key = "twigDump"){
+  console.log(key,data);
+  return '<script type="text/javascript">console.log("' + key + '",' + JSON.stringify(data) + ')</script>';
+}
 var twigFunctions = [
   {
     name: "svgSprite",
@@ -46,7 +49,11 @@ var twigFunctions = [
 
     name: "responsiveImage",
     func: funcResponsiveImage
+  },{
+    name: "dump",
+    func: funcDump,
   }
+
 ];
 var twigDrupal = require('twig-drupal-filters');
 twigDrupal({

@@ -1,6 +1,8 @@
 var path = require('path');
 var fs = require('fs');
 
+var DrupalAttribute = require('drupal-attribute');
+
 var twigFunctions = require('./twigFunctions');
 var twigFilters = require('./twigFilters');
 var twigTags = require('./twigTags');
@@ -37,6 +39,7 @@ var twigConfigs = function(options) {
         useFileContents: true
     }
 }
+
 module.exports = function (options) {
     return {
         getComponentJSON: getComponentJSON,

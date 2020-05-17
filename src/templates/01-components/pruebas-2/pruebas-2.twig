@@ -1,0 +1,16 @@
+{% set classes = [
+] %}
+{% if bold %}
+   {% set classes = classes| merge([boldClass]) %}
+{% endif %}
+<div {{ attributes.addClass(classes) }}>
+  {% if bold %}
+<strong>
+    {% endif %}
+    
+    {{text}}
+    {% if bold %}
+</strong>
+    {% endif %}
+    </div>
+    {{classes}}

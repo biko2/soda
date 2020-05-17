@@ -5,6 +5,9 @@
 var path = require('path');
 var fs = require('fs');
 var glob = require('glob');
+
+
+
 module.exports = function (gulp, plugins, options,twigHelpers) {
     'use strict';
     gulp.task('twigPages:components', function () {
@@ -15,6 +18,7 @@ module.exports = function (gulp, plugins, options,twigHelpers) {
                   this.emit('end');
               }
           }))
+          //.pipe(plugins.data(twigHelpers.gulpDataAttributes))
           .pipe(plugins.data(function(file){
             var filePath = file.path;
             var componentData = twigHelpers.getComponentJSON(filePath);

@@ -1,3 +1,6 @@
+var DrupalAttribute = require('drupal-attribute');
+
+
 module.exports = function (Twig) {
   'use strict';
 
@@ -35,10 +38,10 @@ module.exports = function (Twig) {
       if (precompiled === true) {
         data = JSON.parse(data);
       }
+      let attributes = new DrupalAttribute();
 
       params.data = data;
       params.path = params.path || location;
-
       // Template is in data
       template = parser.call(this, params);
 

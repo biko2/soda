@@ -9,16 +9,10 @@ module.exports = function (gulp, plugins, options,twigHelpers) {
     'use strict';
    gulp.task('twigPages:components-list', function () {
     let componentList = [];
-    var allComponentData = {};
 
     let componentListFiles =  glob.sync(options.twigPages.componentsSrc);
     componentListFiles.forEach(function(file){
-        var componentData = twigHelpers.getComponentJSON(file);
-        allComponentData = Object.assign(allComponentData, componentData);
-        //componentList.push(path.basename(file,'.twig'));
-        //componentList.push({filename:path.basename(file,'.twig'), dirname:path.dirname(file)});
         componentList.push({filename:path.basename(file,'.twig'), dirname:path.dirname(file).replace('src/templates/01-components/', '')});
-
     });
     return gulp.src([path.join(options.twigPages.baseSrc,'components-list-template.twig')])
     .pipe(plugins.data(function(file){
@@ -30,8 +24,8 @@ module.exports = function (gulp, plugins, options,twigHelpers) {
       });
       var content= file.contents.toString().replace('COMPONENTS_LIST', componentsString);
       file.contents = new Buffer.from(content);
-
-      return allComponentData;
+      return {};
+      //return allComponentData;
     }))
     .pipe(plugins.twig(twigHelpers.twigConfigs))
     .on('error', function (err) {

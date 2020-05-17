@@ -10,17 +10,19 @@
           <li><a href="03-pages/{{ value }}/{{ value }}.html">{{ value }}</a></li>
         {% endfor %}
       </ul>
+      {{dump(components)}}
       <h3 class="titular-maquetas">Componentes</h3>
         <ul class="lista-maquetas">
           <li><a href="components-list-template.html">Todos los componentes</a></li>
+        
           {% for value in components %}
-            <li><a href="01-components/{{value.dirname}}/{{ value.filename }}.html">{{ value.filename }}</a></li>
+            <li><a href="01-components/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
           {% endfor %}
         </ul>
         <h3 class="titular-maquetas">Bloques de Componentes</h3>
         <ul class="lista-maquetas">
           {% for value in componentBlocks %}
-            <li><a href="02-component-blocks/{{value.dirname}}/{{ value.filename }}.html">{{ value.filename }}</a></li>
+            <li><a href="02-component-blocks/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
           {% endfor %}
         </ul>
 

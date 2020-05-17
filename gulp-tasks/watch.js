@@ -42,11 +42,7 @@ module.exports = function (gulp, plugins, options) {
     return gulp.watch(options.sass.files,gulp.series('compile:styleguide'));
   });
 
-  gulp.task('watch:jekyll', function () {
-    return gulp.watch(options.jekyll.files,gulp.series('jekyll','browser-sync:reload'));
-  });
 
 
-  gulp.task('watch', gulp.parallel('watch:sass', /*'watch:styleguide',*/ 'watch:js', 'watch:fonts', 'watch:images',/* 'watch:jekyll',*/'watch:twigPages'));
-  gulp.task('watchWithJekyll', gulp.parallel('watch:sass', /*'watch:styleguide',*/ 'watch:js', 'watch:fonts', 'watch:images'));
+  gulp.task('watch', gulp.parallel('watch:sass', /*'watch:styleguide',*/ 'watch:js', 'watch:fonts', 'watch:images','watch:twigPages'));
 };

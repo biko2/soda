@@ -1,0 +1,17 @@
+{
+    "prueba": {
+        "text": "BLOCK",
+        "attributes":{
+            "id": "block1",
+            "class": ["class-block1","class1"],
+            "style" : "background-color:blue;"
+        }
+    },
+    "prueba2": {
+        "text": "BLOCK2",
+        "bold": false,
+        "attributes":{
+            "style" : ["background-color:green;","color:white"]
+        }
+    }
+}

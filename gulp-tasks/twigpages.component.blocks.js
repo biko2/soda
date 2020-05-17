@@ -35,11 +35,6 @@ module.exports = function (gulp, plugins, options,twigHelpers) {
         file.contents = new Buffer.from(fs.readFileSync(templatePath).toString().replace('FILE_PATH', filePath));
         file.data = allComponentData;
       }))
-      .pipe(plugins.data(function(file){
-        var filePath = file.path;
-        var componentData = twigHelpers.getComponentJSON(filePath);
-        return componentData;
-      }))
       .pipe(plugins.twig(twigHelpers.twigConfigs))
       .on('error', function (err) {
         process.stderr.write(err.message + '\n');

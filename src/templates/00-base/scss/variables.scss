@@ -1,7 +1,49 @@
-$red-light:#ff7c84;
+$red-light: #ff7c84;
 $red: #E30613;
 $gray: #eeeeee;
 $gray-darker: #666;
 $black-lighter: #333;
+$blue: #0077b5;
 
-$blue:#0077b5;
+/*
+===========================================
+==  Bootstrap config  =====================
+===========================================
+*/
+
+$grid-columns: 12;
+
+/*
+===========================================
+==  Responsive Fonts config  ==============
+===========================================
+*/
+$enable-responsive-font-sizes: true;
+
+/*
+===========================================
+==  Text sizes config  ====================
+===========================================
+*/
+$text-sizing: (xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.25rem, 2xl: 1.5rem, 3xl: 1.875rem, 4xl: 2.25rem);
+
+/*
+===========================================
+==  Line height sizes config  =============
+===========================================
+*/
+$line-height: (xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.25rem, 2xl: 1.5rem, 3xl: 1.875rem, 4xl: 2.25rem);
+
+/*
+===========================================
+==  Letter Spacing config     =============
+===========================================
+*/
+$letter-spacing: (tightest: -0.05em, tighter: -0.025em, tight: -0.015em, normal: 0em, wide: 0.065em, wider: 0.075em, widest: 1em);
+
+/*
+===========================================
+==  Hovers config     =============
+===========================================
+*/
+$hovers: (primary: $black-lighter, secondary: $red, red: $red-light, blue: 1em);

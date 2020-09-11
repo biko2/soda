@@ -40,7 +40,7 @@
 
         @each $line, $color in $hovers {
             .hover#{$infix}-#{$line}:hover {
-                $color: !important;
+                color: $color !important;
             }
         }
     }

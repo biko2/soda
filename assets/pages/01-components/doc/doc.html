@@ -192,18 +192,33 @@
         <div class="col-12 col-lg-8 offset-lg-2 pb-5">
             <h1 class="text-4xl">Utilidades extendidas</h1>
         </div>
-        <div>
+        <div class="col-12 col-lg-8 offset-lg-2 pb-5">
             <p class="">
-                Cada configuración tiene su archivo correspondiente scss correspondiente
-                Utils
+                Cada utilidad se configura en el archivo config.scss puedes añadir o quitar propiedades.
+                Cada clase resultante podra llevar los medias de Boostrap para aplicarse a una determinada resolución
+            </p>
+            <p>Ejemplo de
+                text-sizing:</p>
             <div class="d-flex flex-column">
                 <div>Utils</div>
-                <div class="pl-3">|----- text.scss</div>
-                <div class="pl-3">|----- hover.scss</div>
-                <div class="pl-3">|----- line-heigth.scss</div>
-                <div class="pl-3">|----- letter.scss</div>
-                <div class="pl-3">|----- color.scss</div>
+                <div class="pl-3">|----- config.scss</div>
+
             </div>
+            <div class="py-4">
+                <pre rel="CSS" class="language-css"><code class="language-css">         
+            $text-sizing: (
+                <span class="deeppink">xs:</span> <span class="greenyellow">0.75rem,</span> 
+                <span class="deeppink">sm:</span> <span class="greenyellow">0.875rem, </span>
+                <span class="deeppink">base:</span><span class="greenyellow">1rem,</span>  
+                <span class="deeppink">lg:</span> <span class="greenyellow">1.125rem, </span>
+                <span class="deeppink">xl:</span> <span class="greenyellow">1.25rem,</span>
+                <span class="deeppink">2xl:</span> <span class="greenyellow">1.5rem, </span>
+                <span class="deeppink">3xl:</span> <span class="greenyellow">1.875rem, </span>
+                <span class="deeppink">4xl:</span> <span class="greenyellow">2.25rem</span> 
+                );
+                </code></pre>
+            </div>
+
 
 
             </p>

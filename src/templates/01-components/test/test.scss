@@ -1,0 +1,11 @@
+.aaa {
+    @extend .line-2xl;
+
+    @extend .text-lg-3xl;
+
+    @extend .text-xs;
+}
+
+.bbb {
+    @include responsive-font-size(64px);
+}

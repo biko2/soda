@@ -1,33 +1,50 @@
 {% extends "@base/twigs/page-maquetas.twig" %}
-{% set title = "Index for pages and components" %}
+{% set title = "Index for pages, components and custom utilities " %}
 {% block page %}
-  <div class="container mt-3">
-    <h1 class="mb-5">Maquetas</h1>
-    <div class="ml-3">
-      <h3 class="titular-maquetas">Páginas</h3>
+<div class="container mt-3">
+  <h1 class="mb-5">Maquetas</h1>
+  <div class="ml-3">
+    <h3 class="titular-maquetas">Páginas</h3>
+    <ul class="lista-maquetas">
+      {% for value in pages %}
+      <li><a href="03-pages/{{ value }}/{{ value }}.html">{{ value }}</a></li>
+      {% endfor %}
+    </ul>
+
+    {{dump(components)}}
+    <h3 class="titular-maquetas">Componentes</h3>
+    <ul class="lista-maquetas">
+      <li><a href="components-list-template.html">Todos los componentes</a></li>
+
+      {% for value in components %}
+      <li><a href="01-components/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <h3 class="titular-maquetas">Bloques de Componentes</h3>
+    <ul class="lista-maquetas">
+      {% for value in componentBlocks %}
+      <li><a href="02-component-blocks/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
+      {% endfor %}
+    </ul>
+
+
+    <div>
+      <h3 class="titular-maquetas">Utilidades</h3>
       <ul class="lista-maquetas">
-        {% for value in pages %}
-          <li><a href="03-pages/{{ value }}/{{ value }}.html">{{ value }}</a></li>
+
+        {% for value in Base %}
+        <li><a href="00-base/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
         {% endfor %}
+
       </ul>
-      {{dump(components)}}
-      <h3 class="titular-maquetas">Componentes</h3>
-        <ul class="lista-maquetas">
-          <li><a href="components-list-template.html">Todos los componentes</a></li>
-        
-          {% for value in components %}
-            <li><a href="01-components/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
-          {% endfor %}
-        </ul>
-        <h3 class="titular-maquetas">Bloques de Componentes</h3>
-        <ul class="lista-maquetas">
-          {% for value in componentBlocks %}
-            <li><a href="02-component-blocks/{{value.dirname}}/{{ value.basename }}.html">{{ value.filename }}</a></li>
-          {% endfor %}
-        </ul>
 
-      <h3 class="titular-maquetas"><a class="u-black u-text-underline" href="/svg/sprite/sprite.symbol.html">SVG sprites</a></h3>
     </div>
-  </div>
-{% endblock %}
 
+
+
+    <h3 class="titular-maquetas"><a class="u-black u-text-underline" href="/svg/sprite/sprite.symbol.html">SVG
+        sprites</a></h3>
+  </div>
+</div>
+{% endblock %}

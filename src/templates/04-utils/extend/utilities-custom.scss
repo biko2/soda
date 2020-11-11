@@ -1,0 +1,59 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $pant, $size in $text-sizing {
+            .text#{$infix}-#{$pant} {
+                font-size: $size !important;
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $line, $size in $text-sizing {
+            .line#{$infix}-#{$line} {
+                line-height: $size !important;
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $line, $size in $letter-spacing {
+            .letter#{$infix}-#{$line} {
+                letter-spacing: $size !important;
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $line, $color in $hovers {
+            .hover#{$infix}-#{$line}:hover {
+                color: $color !important;
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $name, $color in $themecolors {
+            .color#{$infix}-#{$name} {
+                color: $color !important;
+            }
+        }
+    }
+}

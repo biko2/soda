@@ -53,7 +53,7 @@
     "clean": "node_modules/gulp/bin/gulp.js clean"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.5.1",
     "drupal-attribute": "^1.0.2",
     "gulp-cli": "^2.0.1",
     "include-media": "1.4.9",
